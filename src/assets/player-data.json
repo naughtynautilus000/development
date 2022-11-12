@@ -1,0 +1,272 @@
+[
+  {
+    "name": "LeBron James",
+    "team": "LeBron",
+    "starter": true,
+    "position": "f",
+    "appearances": 18,
+    "all_nba_teams": 18,
+    "popularity_rank": 1,
+    "image": "images/lebron_james.png"
+  },
+  {
+    "name": "Giannis Antetokounmpo",
+    "team": "LeBron",
+    "starter": true,
+    "position": "f",
+    "appearances": 6,
+    "all_nba_teams": 6,
+    "popularity_rank": 4,
+    "image": "images/giannis_antetokounmpo.png"
+  },
+  {
+    "name": "Stephen Curry",
+    "team": "LeBron",
+    "starter": true,
+    "position": "g",
+    "appearances": 8,
+    "all_nba_teams": 8,
+    "popularity_rank": 2,
+    "image": "images/stephen_curry.png"
+  },
+  {
+    "name": "DeMar DeRozan",
+    "team": "LeBron",
+    "starter": true,
+    "position": "g",
+    "appearances": 5,
+    "all_nba_teams": 3,
+    "popularity_rank": 6,
+    "image": "images/demar_derozan.png"
+  },
+  {
+    "name": "Nikola Jokic",
+    "team": "LeBron",
+    "starter": true,
+    "position": "c",
+    "appearances": 4,
+    "all_nba_teams": 4,
+    "popularity_rank": 5,
+    "image": "images/nikola_jokic.png"
+  },
+  {
+    "name": "Jarrett Allen",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "c",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 24,
+    "image": "images/jarrett_allen.png"
+  },
+  {
+    "name": "Jimmy Butler",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "f",
+    "appearances": 6,
+    "all_nba_teams": 4,
+    "popularity_rank": 16,
+    "image": "images/jimmy_butler.png"
+  },
+  {
+    "name": "Luka Doncic",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 4,
+    "all_nba_teams": 3,
+    "popularity_rank": 11,
+    "image": "images/luka_doncic.png"
+  },
+  {
+    "name": "Darius Garland",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 25,
+    "image": "images/darius_garland.png"
+  },
+  {
+    "name": "James Harden",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 10,
+    "all_nba_teams": 7,
+    "popularity_rank": 13,
+    "image": "images/james_harden.png"
+  },
+  {
+    "name": "Donovan Mitchell",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 3,
+    "all_nba_teams": 0,
+    "popularity_rank": 22,
+    "image": "images/donovan_mitchell.png"
+  },
+  {
+    "name": "Chris Paul",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 12,
+    "all_nba_teams": 11,
+    "popularity_rank": 20,
+    "image": "images/chris_paul.png"
+  },
+  {
+    "name": "Fred VanVleet",
+    "team": "LeBron",
+    "starter":  false,
+    "position": "g",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 21,
+    "image": "images/fred_vanvleet.png"
+  },
+  {
+    "name": "Kevin Durant",
+    "team": "Durant",
+    "starter": true,
+    "position": "f",
+    "appearances": 12,
+    "all_nba_teams": 10,
+    "popularity_rank": 3,
+    "image": "images/kevin_durant.png"
+  },
+  {
+    "name": "Joel Embiid",
+    "team": "Durant",
+    "starter": true,
+    "position": "c",
+    "appearances": 5,
+    "all_nba_teams": 4,
+    "popularity_rank": 7,
+    "image": "images/joel_embiid.png"
+  },
+  {
+    "name": "Ja Morant",
+    "team": "Durant",
+    "starter": true,
+    "position": "g",
+    "appearances": 1,
+    "all_nba_teams": 1,
+    "popularity_rank": 8,
+    "image": "images/ja_morant.png"
+  },
+  {
+    "name": "Jayson Tatum",
+    "team": "Durant",
+    "starter": true,
+    "position": "f",
+    "appearances": 3,
+    "all_nba_teams": 2,
+    "popularity_rank": 15,
+    "image": "images/jayson_tatum.png"
+  },
+  {
+    "name": "Andrew Wiggins",
+    "team": "Durant",
+    "starter": true,
+    "position": "f",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 9,
+    "image": "images/andrew_wiggins.png"
+  },
+  {
+    "name": "Trae Young",
+    "team": "Durant",
+    "starter": true,
+    "position": "g",
+    "appearances": 2,
+    "all_nba_teams": 1,
+    "popularity_rank": 10,
+    "image": "images/trae_young.png"
+  },
+  {
+    "name": "LaMelo Ball",
+    "team": "Durant",
+    "starter":  false,
+    "position": "g",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 18,
+    "image": "images/lamelo_ball.png"
+  },
+  {
+    "name": "Devin Booker",
+    "team": "Durant",
+    "starter":  false,
+    "position": "g",
+    "appearances": 3,
+    "all_nba_teams": 1,
+    "popularity_rank": 19,
+    "image": "images/devin_booker.png"
+  },
+  {
+    "name": "Rudy Gobert",
+    "team": "Durant",
+    "starter":  false,
+    "position": "c",
+    "appearances": 3,
+    "all_nba_teams": 4,
+    "popularity_rank": 23,
+    "image": "images/rudy_gobert.png"
+  },
+  {
+    "name": "Zach LaVine",
+    "team": "Durant",
+    "starter":  false,
+    "position": "g",
+    "appearances": 2,
+    "all_nba_teams": 0,
+    "popularity_rank": 12,
+    "image": "images/zach_lavine.png"
+  },
+  {
+    "name": "Khris Middleton",
+    "team": "Durant",
+    "starter":  false,
+    "position": "f",
+    "appearances": 3,
+    "all_nba_teams": 0,
+    "popularity_rank": 26,
+    "image": "images/khris_middleton.png"
+  },
+  {
+    "name": "Dejounte Murray",
+    "team": "Durant",
+    "starter":  false,
+    "position": "g",
+    "appearances": 1,
+    "all_nba_teams": 0,
+    "popularity_rank": 27,
+    "image": "images/dejounte_murray.png"
+  },
+  {
+    "name": "Karl-Anthony Towns",
+    "team": "Durant",
+    "starter":  false,
+    "position": "c",
+    "appearances": 3,
+    "all_nba_teams": 2,
+    "popularity_rank": 17,
+    "image": "images/karl_anthony_towns.png"
+  },
+  {
+    "name": "Draymond Green",
+    "team": "Durant",
+    "starter":  false,
+    "position": "f",
+    "appearances": 4,
+    "all_nba_teams": 2,
+    "popularity_rank": 14,
+    "image": "images/draymond_green.png"
+  }
+]
