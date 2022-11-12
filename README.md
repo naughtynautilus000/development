@@ -77,3 +77,17 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
    either add or remove the corresponding player from the favorites list. The `favorites` variable
    itself is used in the filtering function to only show the user's favorited players when the
    favorites checkbox is checked.
+   
+## Other Notes
+
+### JSON Data
+
+I sourced the information in the player-data.json file myself. To collect all of the information
+contained in this file I used the following links and websites:
+
+- [The 2022 NBA All-Star roster](https://www.nba.com/allstar/2022/all-star-roster) for the list
+  of players and their number of all-star appearances.
+- [StatMuse](https://www.statmuse.com/) for the images of each player.
+- [Basketball Reference](https://www.basketball-reference.com/) for the number of All-NBA teams
+  each player was selected for.
+
