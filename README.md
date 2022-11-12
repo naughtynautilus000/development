@@ -89,5 +89,5 @@ contained in this file I used the following links and websites:
   of players and their number of all-star appearances.
 - [StatMuse](https://www.statmuse.com/) for the images of each player.
 - [Basketball Reference](https://www.basketball-reference.com/) for the number of All-NBA teams
-  each player was selected for.
+  each player was selected for and for the number of All-Star votes each player received.
 
