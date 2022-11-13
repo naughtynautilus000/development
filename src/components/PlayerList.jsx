@@ -1,22 +1,12 @@
 import players from '../assets/player-data.json'
 import PlayerCard from './PlayerCard'
-import { useState } from 'react'
 import { sortByAllNbaTeams, sortByPopularity, sortByAppearances, toSiteUrl } from '../util'
 
 players.forEach(player => {
   player.image = toSiteUrl(player.image)
 })
 
-const PlayerList = ({ filters, sortParameter }) => {
-  const [favorites, setFavorites] = useState([])
-  const handleFavoriteChange = (player) => {
-    if (favorites.some(p => p.name === player.name)) {
-      setFavorites(favorites.filter(p => p.name !== player.name))
-    } else {
-      setFavorites(favorites.concat(player))
-    }
-  }
-
+const PlayerList = ({ filters, sortParameter, favorites, handleFavoritesChange }) => {
 
   const filteredPlayers = players.filter((player) => {
     if (filters.includes("team-lebron")) {
@@ -78,7 +68,7 @@ const PlayerList = ({ filters, sortParameter }) => {
           player={p}
           key={i}
           favorite={favorites.some(somePlayer => somePlayer.name === p.name)}
-          handleFavoriteChange={handleFavoriteChange} />)}
+          handleFavoritesChange={handleFavoritesChange} />)}
     </ul>
   )
 }

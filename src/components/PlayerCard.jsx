@@ -1,6 +1,6 @@
 import { toSiteUrl } from '../util'
 
-const PlayerCard = ({player, handleFavoriteChange, favorite}) => {
+const PlayerCard = ({player, handleFavoritesChange, favorite}) => {
   const {name, team, starter, position, appearances, all_nba_teams, image} = player
 
   return (
@@ -17,7 +17,7 @@ const PlayerCard = ({player, handleFavoriteChange, favorite}) => {
           <h4>All-Star Appearances<span>{appearances}</span></h4>
           <h4>All-NBA Teams<span>{all_nba_teams}</span></h4>
         </div>
-        <button className={favorite ? "favorite" : ""} onClick={() => handleFavoriteChange(player)}>
+        <button className={favorite ? "favorite" : ""} onClick={() => handleFavoritesChange(player)}>
           <img src={toSiteUrl(favorite ? "images/star.png" : "images/star_outline.png")} alt="star" />
           <span>{favorite ? "Remove Player from Favorites" : "Add Player to Favorites"}</span>
         </button>
