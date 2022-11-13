@@ -58,9 +58,13 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
    list represents one field by which to filter the player list. Strings are added and removed from
    this field when the user selects checkboxes from the menu. To achieve this, we pass a handler
    function as a prop to every _Checkbox_ component which calls `setFilter`. This handler runs when
-   a checkbox is selected or unselected, triggering the variable update. `filters` is passed as a
-   prop to the _PlayerList_. Then, inside _PlayerList_, we filter the list of players depending on
-   the strings contained in `filters`.
+   a checkbox is selected or unselected, triggering the variable update.
+
+   `filters` is passed as a prop to the _PlayerList_. Then, inside _PlayerList_, we filter the list
+   of players depending of the strings contained in `filters`. `filters` is also passed as a prop to
+   each _Checkbox_ component. Within each _Checkbox_, `filters` is used to check whether or not the
+   _Checkbox_ should be checked. That is, the `filters` variable controls the state of the
+   _Checkbox_.
 
 2. `_sortParameter_` (contained in _App_): This variable is a single string which represents the
    field by which to sort the players (popularity, all-star game appearances, or all-NBA teams). We
@@ -69,15 +73,28 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
    triggering the variable update. `sortParameter` is passed as a prop to _PlayerList_. Then,
    inside _PlayerList_, we sort the list of players by the `sortParameter`.
 
-3. `_favorites_` (contained in _PlayerList_): This variable is a list that contains all of the user's
+   `sortParameter` is also passed as a prop to each _RadioButton_. In each _RadioButton_,
+   `sortParameter` is used to check if the _RadioButton_ should be selected. That is, the
+   `sortParameter` variable controls the state of each _RadioButton_.
+
+3. `_favorites_` (contained in _App_): This variable is a list that contains all of the user's
    favorited players. To favorite a player, the user clicks the "add player to favorites" button
    found on each _PlayerCard_. To unfavorite a player, the user clicks the "remove player from
-   favorites" button found the _PlayerCards_ that have already been favorited. Achieve this
+   favorites" button found the _PlayerCards_ that have already been favorited. To achieve this
    behavior, we pass a handler function as a prop to each _PlayerCard_ which calls `setFavorites` to
    either add or remove the corresponding player from the favorites list. The `favorites` variable
    itself is used in the filtering function to only show the user's favorited players when the
    favorites checkbox is checked.
-   
+
+### Resetting the Application State
+
+There is a reset button contained in the menu that resets the application to its original state (the
+sort parameter is "popularity", no filters are selected, and there are no favorites.) We pass a
+`handleReset` function as the onClick prop to the button, which sets the three state variables
+mentioned above to the appropriate values. Because the state of each _Checkbox_ and _RadioButton_ is
+controlled by the passed down state variable, resetting the state variables also resets the visual
+state of the application.
+
 ## Other Notes
 
 ### JSON Data
@@ -90,4 +107,3 @@ contained in this file I used the following links and websites:
 - [StatMuse](https://www.statmuse.com/) for the images of each player.
 - [Basketball Reference](https://www.basketball-reference.com/) for the number of All-NBA teams
   each player was selected for and for the number of All-Star votes each player received.
-
