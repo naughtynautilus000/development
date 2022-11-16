@@ -32,17 +32,23 @@ There are 5 components that makes up this App:
 1. _App.jsx_: This component is the wrapper for the entire application, this component contains the
    header, menu and player list for the application
 
-2. _RadioButton.jsx_: This component represents one radio button option among the different sort
-   options in this application. The RadioButtons are contained in the `<menu>` HTML element.
+2. _SortOption.jsx_: This component represents one way to sort the list of players. Each
+   _SortOption_ is a wrapper for a radio button HTML component The _SortOptions_ are found in a
+   `<fieldset>` HTML component located in the `<menu>` in _App.jsx_.
 
-3. _Checkbox.jsx_: Like the RadioButton component, this element represents a single checkbox option
-   among the multiple filter options in the `<menu>` HTML element.
+3. _Checkbox.jsx_: The checkbox component represents one option in a filtering `<fieldset>` where
+   all the options in that `<fieldset>` **are not** mutually exclusive. _Checkbox_ components found
+   in a `<fieldset>` HTML component in the `<menu>`
 
-4. _PlayerList.jsx_: This component contains the list of players, rendered as _PlayerCard_
+4. _FilterOption.jsx_: This component represents one option in a filtering `<fieldset>` where all
+   the options in that `<fieldset>` **are** mutually exclusive. _FilterOption_ components are found
+   in a `<fieldset>` HTML component in the `<menu>`.
+
+5. _PlayerList.jsx_: This component contains the list of players, rendered as _PlayerCard_
    components, as well as the business logic for sorting and filtering that list depending on the
    user's selections on the menu.
 
-5. _PlayerCard.jsx_: This component displays the information pertaining to one player in the player
+6. _PlayerCard.jsx_: This component displays the information pertaining to one player in the player
    list contained in PlayerList.jsx.
 
 ## How Data is Updated and Passed Down Through Components
@@ -54,11 +60,13 @@ renders the data for each player to the screen.
 
 There are 3 state variables (all declared using the `useState` hook) used in this App:
 
-1. `_filters_` (contained in _App_): This variable is a list of strings where each item in the
-   list represents one field by which to filter the player list. Strings are added and removed from
-   this field when the user selects checkboxes from the menu. To achieve this, we pass a handler
-   function as a prop to every _Checkbox_ component which calls `setFilter`. This handler runs when
-   a checkbox is selected or unselected, triggering the variable update.
+1. `filters` (declared in _App_): This variable is an object which represents the active filters
+   by which to filter the list of players. The fields in this object are either a string or a
+   boolean. The string fields represent a filter that belongs to a `<fieldset>` of mutually
+   exclusive options (_FilterOption_ radio buttons). The boolean fields represent a filter that does
+   not belong to a mutually exclusive group of options (_Checkbox_ components). To update the active
+   filters, we pass the `setFilterOptionChange` handler function to each _FilterOption_ and
+   _Checkbox_ component. This handler calls the `setFilters` function which updates the react state.
 
    `filters` is passed as a prop to the _PlayerList_. Then, inside _PlayerList_, we filter the list
    of players depending of the strings contained in `filters`. `filters` is also passed as a prop to
@@ -66,18 +74,18 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
    _Checkbox_ should be checked. That is, the `filters` variable controls the state of the
    _Checkbox_.
 
-2. `_sortParameter_` (contained in _App_): This variable is a single string which represents the
+2. `_sortParameter_` (declared in _App_): This variable is a single string which represents the
    field by which to sort the players (popularity, all-star game appearances, or all-NBA teams). We
    change the `sortParameter` by passing a handler function, which calls `setSortParameter`, as a
-   prop to each _RadioButton_ component. This handler runs when a radio button is clicked,
+   prop to each _SortOption_ component. This handler runs when a radio button is clicked,
    triggering the variable update. `sortParameter` is passed as a prop to _PlayerList_. Then,
    inside _PlayerList_, we sort the list of players by the `sortParameter`.
 
-   `sortParameter` is also passed as a prop to each _RadioButton_. In each _RadioButton_,
-   `sortParameter` is used to check if the _RadioButton_ should be selected. That is, the
-   `sortParameter` variable controls the state of each _RadioButton_.
+   `sortParameter` is also passed as a prop to each _SortOption_. In each _SortOption_,
+   `sortParameter` is used to check if the _SortOption_ should be selected. That is, the
+   `sortParameter` variable controls the state of each _SortOption_.
 
-3. `_favorites_` (contained in _App_): This variable is a list that contains all of the user's
+3. `_favorites_` (declared in _App_): This variable is a list that contains all of the user's
    favorited players. To favorite a player, the user clicks the "add player to favorites" button
    found on each _PlayerCard_. To unfavorite a player, the user clicks the "remove player from
    favorites" button found the _PlayerCards_ that have already been favorited. To achieve this
@@ -91,9 +99,9 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
 There is a reset button contained in the menu that resets the application to its original state (the
 sort parameter is "popularity", no filters are selected, and there are no favorites.) We pass a
 `handleReset` function as the onClick prop to the button, which sets the three state variables
-mentioned above to the appropriate values. Because the state of each _Checkbox_ and _RadioButton_ is
-controlled by the passed down state variable, resetting the state variables also resets the visual
-state of the application.
+mentioned above to the appropriate values. Because the state of each _FilterOption_, _Checkbox_, and
+_SortOption_ is controlled by the passed down state variable, resetting the state variables also
+resets the visual state of the application.
 
 ## Other Notes
 

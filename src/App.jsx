@@ -5,13 +5,43 @@ import './styles/players.css';
 import { useState } from 'react';
 import PlayerList from './components/PlayerList';
 import CheckBox from './components/Checkbox';
-import RadioButton from './components/RadioButton';
+import SortOption from './components/SortOption';
 import { toSiteUrl } from './util';
+import FilterOption from './components/FilterOption';
+
+const filterDefaults = {
+  team: "",
+  starterReserve: "",
+  position: "",
+  firstTimeAllStars: false,
+  favorites: false
+}
 
 function App() {
-  const [filters, setFilters] = useState([])
+  const [filters, setFilters] = useState(filterDefaults)
   const [sortParameter, setSortParameter] = useState("popularity")
   const [favorites, setFavorites] = useState([])
+
+  const handleFiltersOptionChange = (name, value) => {
+    switch (name) {
+      case "team":
+        setFilters({...filters, team: value})
+        break
+      case "starter-reserve":
+        setFilters({...filters, starterReserve: value})
+        break
+      case "position":
+        setFilters({...filters, position: value})
+        break
+      case "first-time-all-stars":
+        setFilters({...filters, firstTimeAllStars: !filters.firstTimeAllStars})
+        break
+      case "favorites":
+        setFilters({...filters, favorites: !filters.favorites})
+        break
+      default:
+    }
+  }
 
   const handleFavoritesChange = (player) => {
     if (favorites.some(p => p.name === player.name)) {
@@ -21,12 +51,6 @@ function App() {
     }
   }
 
-  const handleFilterChange = (e, value) => {
-    e.target.checked ? 
-      setFilters(filters.concat(value)) :
-      setFilters(filters.filter(f => f !== value))
-  }
-
   const handleSortChange = (value) => {
     sortParameter !== value && setSortParameter(value)
   }
@@ -34,7 +58,7 @@ function App() {
   const handleReset = () => {
     setFavorites([])
     setSortParameter("popularity")
-    setFilters([])
+    setFilters(filterDefaults)
   }
 
   return (
@@ -49,15 +73,15 @@ function App() {
           <div>
             <h2>Sort By</h2>
             <fieldset>
-              <RadioButton 
+              <SortOption 
                 selection={sortParameter}
                 label="Popularity"
                 onClick={handleSortChange} />
-              <RadioButton
+              <SortOption
                 selection={sortParameter}
                 label="All-Star Appearances"
                 onClick={handleSortChange} />
-              <RadioButton
+              <SortOption
                 selection={sortParameter}
                 label="All-NBA Teams"
                 onClick={handleSortChange} />
@@ -68,51 +92,58 @@ function App() {
             <div>
               <fieldset>
                 <legend>Team</legend>
-                <CheckBox
-                  label={'Team LeBron'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
-                <CheckBox
-                  label={'Team Durant'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
+                <FilterOption
+                  name="team"
+                  label="Team LeBron"
+                  selection={filters.team}
+                  onClick={handleFiltersOptionChange} />
+                <FilterOption
+                  name="team"
+                  label="Team Durant"
+                  selection={filters.team}
+                  onClick={handleFiltersOptionChange} />
               </fieldset>
               <fieldset>
                 <legend>Starter/Reserve</legend>
-                <CheckBox
-                  label={'Starters'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
-                <CheckBox
-                  label={'Reserves'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
+                <FilterOption
+                  name="starter-reserve"
+                  label="Starters"
+                  selection={filters.starterReserve}
+                  onClick={handleFiltersOptionChange} />
+                <FilterOption
+                  name="starter-reserve"
+                  label="Reserves"
+                  selection={filters.starterReserve}
+                  onClick={handleFiltersOptionChange} />
               </fieldset>
               <fieldset>
                 <legend>Position</legend>
-                <CheckBox
-                  label={'Guards'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
-                <CheckBox
-                  label={'Forwards'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
-                <CheckBox
-                  label={'Centers'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
+                <FilterOption
+                  name="position"
+                  label="Guards"
+                  selection={filters.position}
+                  onClick={handleFiltersOptionChange} />
+                <FilterOption
+                  name="position"
+                  label="Forwards"
+                  selection={filters.position}
+                  onClick={handleFiltersOptionChange} />
+                <FilterOption
+                  name="position"
+                  label="Centers"
+                  selection={filters.position}
+                  onClick={handleFiltersOptionChange} />
               </fieldset>
               <fieldset>
                 <legend>Other</legend>
                 <CheckBox
+                  checked={filters.firstTimeAllStars}
                   label={'First-time All-Stars'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
+                  onClick={handleFiltersOptionChange}/>
                 <CheckBox
+                  checked={filters.favorites}
                   label={'Favorites'}
-                  filters={filters}
-                  onClick={handleFilterChange}/>
+                  onClick={handleFiltersOptionChange}/>
               </fieldset>
             </div>
           </div>

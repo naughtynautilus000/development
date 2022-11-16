@@ -9,39 +9,39 @@ players.forEach(player => {
 const PlayerList = ({ filters, sortParameter, favorites, handleFavoritesChange }) => {
 
   const filteredPlayers = players.filter((player) => {
-    if (filters.includes("team-lebron")) {
+    if (filters.team === "team-lebron") {
       if (player.team !== "LeBron") return false
     }
 
-    if (filters.includes("team-durant")) {
+    if (filters.team === "team-durant") {
       if (player.team !== "Durant") return false
     }
 
-    if (filters.includes("starters")) {
+    if (filters.starterReserve === "starters") {
       if (!player.starter) return false
     }
 
-    if (filters.includes("reserves")) {
+    if (filters.starterReserve === "reserves") {
       if (player.starter) return false
     }
 
-    if (filters.includes("guards")) {
+    if (filters.position === "guards") {
       if (player.position !== "g") return false
     }
 
-    if (filters.includes("forwards")) {
+    if (filters.position === "forwards") {
       if (player.position !== "f") return false
     }
 
-    if (filters.includes("centers")) {
+    if (filters.position === "centers") {
       if (player.position !== "c") return false
     }
 
-    if (filters.includes("first-time-all-stars")) {
+    if (filters.firstTimeAllStars) {
       if (player.appearances !== 1) return false
     }
 
-    if (filters.includes("favorites")) {
+    if (filters.favorites) {
       if (!favorites.some(p => p.name === player.name)) return false
     }
 
