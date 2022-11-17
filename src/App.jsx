@@ -61,11 +61,28 @@ function App() {
     setFilters(filterDefaults)
   }
 
+  const averageAppearances =
+    favorites.length === 0 ? 
+      0 : 
+      (favorites.reduce((acc, cur) => acc + cur.appearances, 0) / favorites.length).toFixed(2)
+
+  const averageAllNbaTeams = 
+    favorites.length === 0 ? 
+      0 : 
+      (favorites.reduce((acc, cur) => acc + cur.all_nba_teams, 0) / favorites.length).toFixed(2)
+
   return (
     <div className="App">
       <header>
         <img id='basketball' src={toSiteUrl("images/basketball.png")} alt="basketball" />
         <h1>2022 NBA <br /> All-Stars</h1>
+        <div id='aggregator'>
+          <h2>Your favorite players have an average of</h2>
+          <div>
+            <h3><span className='number'>{averageAppearances}</span>  All-Star Appearances</h3>
+            <h3><span className='number'>{averageAllNbaTeams}</span> All-NBA Teams</h3>
+          </div>
+        </div>
         <img id='nba' src={toSiteUrl("images/nba.png")} alt="nba" />
       </header>
       <main>

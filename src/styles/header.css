@@ -31,3 +31,28 @@ header img {
 #nba { 
   margin-left: auto;
 }
+
+#aggregator {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#aggregator h2 {
+  margin: 0;
+}
+
+#aggregator > div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#aggregator h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+#aggregator .number {
+  font-weight: 800;
+}

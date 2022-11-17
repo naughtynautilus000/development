@@ -94,6 +94,16 @@ There are 3 state variables (all declared using the `useState` hook) used in thi
    itself is used in the filtering function to only show the user's favorited players when the
    favorites checkbox is checked.
 
+### The Aggregator
+
+The two aggregated values are the average number of All-Star appearances and the average number of
+All-NBA teams among the user's favorited players. To display these values, we use the `reduce`
+array method to calculate the averages of each of the two values among the favorited players. We
+then display these values in the header.
+
+_NOTE: These aggregated values **are not** react state_. These values are instead derived from the
+`favorites` state variable.
+
 ### Resetting the Application State
 
 There is a reset button contained in the menu that resets the application to its original state (the
